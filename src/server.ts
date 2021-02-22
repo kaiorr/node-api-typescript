@@ -1,3 +1,4 @@
+import { BeachesController } from './controllers/beaches';
 import './util/module-alias'
 import { Server } from '@overnightjs/core'
 import { Application } from 'express'
@@ -39,7 +40,8 @@ export class SetupServer extends Server {
 
   private setupControllers(): void {
     const forecastController = new ForecastController()
-    this.addControllers([forecastController])
+    const beachesController = new BeachesController()
+    this.addControllers([forecastController, beachesController])
   }
 
   public getApp(): Application {
