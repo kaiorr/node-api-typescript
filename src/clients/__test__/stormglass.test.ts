@@ -13,8 +13,8 @@ describe('StormGlass client', () => {
   const mockedRequest = new HTTPUtil.Request() as jest.Mocked<HTTPUtil.Request>
 
   it('Should return the normalized forecast from the StormGlass service', async () => {
-    const lat = -16.3714122
-    const lng = -49.5162334
+    const lat= -33.792726
+    const lng= 151.289824
     //force inference types, only use tests cases || jest.mocked<>
     mockedRequest.get.mockResolvedValue({ data: stormGlassWeatherFixture } as HTTPUtil.Response)
 
@@ -24,9 +24,10 @@ describe('StormGlass client', () => {
   })
 
   it('Should exclude incomplete data points', async () => {
-    const lat = -16.3714122
-    const lng = -49.5162334
-    const incompleteResponse = {
+    const lat= -33.792726
+    const lng= 151.289824
+
+    const incompleteResponse= {
       hours: [
         {
           windDiretion: {
@@ -45,8 +46,8 @@ describe('StormGlass client', () => {
   })
 
   it('Should get a generic error from StormGlass service when the request fail before reaching the service', async () => {
-    const lat = -16.3714122
-    const lng = -49.5162334
+    const lat= -33.792726
+    const lng= 151.289824
 
     mockedRequest.get.mockRejectedValue({ message: 'Network Error' })
 
@@ -58,8 +59,8 @@ describe('StormGlass client', () => {
   })
 
   it('Should get an StormGlassResponseError when the StormGlass service responds with error', async () => {
-    const lat = -16.3714122
-    const lng = -49.516233
+    const lat= -33.792726
+    const lng= 151.289824
 
     MockecdRquestClass.isRequestError.mockReturnValue(true)
 

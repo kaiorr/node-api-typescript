@@ -14,7 +14,6 @@ export interface Beach {
   position: BeachPosition
   lat: number
   lng: number
-  user: string
 }
 
 export interface TimeForecast {
@@ -49,7 +48,7 @@ export class Forecast {
       } catch(error) {
         throw new ForecastProcessingInternalError(error.message)
       }
-  }
+    }
 
   private enrichedBeachData(
     points: ForecastPoint[],
